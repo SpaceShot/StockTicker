@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="refresh" content="5">
+    <title>Philly.NET SignalR Stock Ticker</title>
+    <link href="~/Content/simpleTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Philly.NET SignalR Stock Report Sample</h1>
+
+    <h2>Index</h2>
+
+    <h2>Stock Report</h2>
+    <p>Updates brought to you by: &lt;meta http-equiv="refresh" content="5"&gt;</p>
+    <div id="stockTable">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Open</th>
+                    <th>Change</th>
+                    <th>%</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stock in ViewBag.Stocks)
+                {
+                    <tr>
+                        <td>@stock.Symbol</td>
+                        <td>@stock.Price</td>
+                        <td>@stock.DayOpen</td>
+                        <td>@stock.Change</td>
+                        <td>@stock.PercentChange</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

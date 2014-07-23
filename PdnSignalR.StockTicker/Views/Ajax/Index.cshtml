@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Philly.NET SignalR Stock Ticker</title>
+    <link href="~/Content/simpleTheme.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>Philly.NET SignalR Stock Report Sample</h1>
+
+    <h2>Index</h2>
+
+    <h2>Stock Report</h2>
+    <p>Updates brought to you by: xmlHttpRequest</p>
+    <div id="stockTable">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Open</th>
+                    <th>Change</th>
+                    <th>%</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var stock in ViewBag.Stocks)
+                {
+                    <tr class="@stock.Symbol">
+                        <td>@stock.Symbol</td>
+                        <td>@stock.Price</td>
+                        <td>@stock.DayOpen</td>
+                        <td>@stock.Change</td>
+                        <td>@stock.PercentChange</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", domReady);
+
+        function domReady() {
+            setInterval(pollForUpdate, 3000);
+        }
+
+        function pollForUpdate() {
+            var r = new XMLHttpRequest();
+            r.open("POST", "api", true);
+            r.onreadystatechange = function () {
+                if (r.readyState != 4 || r.status != 200) return;
+                updateStockReport(JSON.parse(r.responseText));
+            };
+            r.send("dummyData=dumb");
+        }
+        
+        function updateStockReport(update) {
+            update.forEach(updateStock);
+        }
+        
+        function updateStock(stock) {
+            var tr = document.querySelector('.' + stock.Symbol);
+            tr.innerHTML = '<td>' + stock.Symbol + '</td>' +
+                '<td>' + stock.Price + '</td>' +
+                '<td>' + stock.DayOpen + '</td>' +
+                '<td>' + stock.Change + '</td>' +
+                '<td>' + stock.PercentChange + '</td>';
+        }
+    </script>
+</body>
+</html>
