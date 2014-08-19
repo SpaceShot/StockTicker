@@ -10,7 +10,7 @@
     <script src="~/Scripts/jquery.signalR-2.1.1.min.js"></script>
     <script src="/signalr/hubs"></script>
 
-    
+
     <script type="text/javascript">
         $(function () {
             var stockHub = $.connection.stockHub;
@@ -19,7 +19,11 @@
                 updateStock(stock);
             };
 
-            $.connection.hub.start();
+            $.connection.hub.start()
+                .done(function () {
+                    var transportDiv = document.querySelector('#transport');
+                    transportDiv.innerText = $.connection.hub.transport.name;
+                });
         });
 
         function updateStock(stock) {
@@ -36,9 +40,8 @@
     <img src="~/Images/SignalR.png" />
     <h1>SignalR Stock Ticker Sample</h1>
 
-    <h2>Index</h2>
-
     <h2>Stock Report</h2>
+
     <div id="stockTable">
         <table border="1">
             <thead>
@@ -64,5 +67,10 @@
             </tbody>
         </table>
     </div>
+
+    <p>
+        SignalR Connection Status<br />
+        Transport: <span id="transport"></span>
+    </p>
 </body>
 </html>
