@@ -72,7 +72,7 @@ namespace SpaceShot.Samples.StockCore
 
                     foreach (var stock in _stocks.Values)
                     {
-                        if (TryUpdateStockPrice(stock))
+                        if (StockPriceChanged(stock))
                         {
                             if (_hubContext != null)
                             {
@@ -87,14 +87,17 @@ namespace SpaceShot.Samples.StockCore
             }
         }
 
-        private bool TryUpdateStockPrice(Stock stock)
+        private bool StockPriceChanged(Stock stock)
         {
             // Randomly choose whether to update this stock or not
             var r = _updateOrNotRandom.NextDouble();
             if (r > .1)
             {
+                // let's not change it
                 return false;
             }
+
+            // Let's change it!
 
             // Update the stock price by a random factor of the range percent
             var random = new Random((int)Math.Floor(stock.Price));
