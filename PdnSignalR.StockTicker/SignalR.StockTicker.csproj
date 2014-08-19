@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="StockBroadcaster.cs" />
     <Compile Include="StockHub.cs" />
   </ItemGroup>
   <ItemGroup>

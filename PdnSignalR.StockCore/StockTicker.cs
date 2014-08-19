@@ -4,17 +4,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
-using Microsoft.AspNet.SignalR;
-
 namespace SpaceShot.Samples.StockCore
 {
     public class StockTicker
     {
-        private static IHubContext _hubContext;
-        public static IHubContext HubContext
-        { 
-            set {_hubContext = value;}
-        }
+        // Stock changed event
+        public event EventHandler<StockPriceChangedArgs> StockPriceChangedEvent;
 
         // Singleton instance
         private readonly static Lazy<StockTicker> _instance = new Lazy<StockTicker>(() => new StockTicker());
@@ -62,6 +57,21 @@ namespace SpaceShot.Samples.StockCore
             return _stocks.Values;
         }
 
+        protected virtual void OnStockPriceChanged(StockPriceChangedArgs stock)
+        {
+            // Make a temporary copy of the event to avoid possibility of 
+            // a race condition if the last subscriber unsubscribes 
+            // immediately after the null check and before the event is raised.
+            var handler = StockPriceChangedEvent;
+
+            // Event will be null if there are no subscribers 
+            if (handler != null)
+            {
+                // Use the () operator to raise the event.
+                handler(this, stock);
+            }
+        }
+
         private void UpdateStockPrices(object state)
         {
             lock (_updateStockPricesLock)
@@ -74,11 +84,7 @@ namespace SpaceShot.Samples.StockCore
                     {
                         if (StockPriceChanged(stock))
                         {
-                            if (_hubContext != null)
-                            {
-                                _hubContext.Clients.All.StockUpdated(stock);
-                            }
-
+                            OnStockPriceChanged(new StockPriceChangedArgs(stock));
                         }
                     }
 
