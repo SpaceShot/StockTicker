@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace PdnSignalR.StockTicker
+namespace SpaceShot.Samples.StockTicker
 {
     public class FilterConfig
     {

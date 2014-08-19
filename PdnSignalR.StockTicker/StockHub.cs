@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 
-namespace PdnSignalR.StockTicker
+namespace SpaceShot.Samples.StockTicker
 {
     public class StockHub : Hub
     {

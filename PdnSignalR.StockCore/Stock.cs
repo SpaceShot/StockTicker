@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PdnSignalR.StockCore
+namespace SpaceShot.Samples.StockCore
 {
     public class Stock
     {

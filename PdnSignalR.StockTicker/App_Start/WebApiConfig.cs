@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace PdnSignalR.StockTicker
+namespace SpaceShot.Samples.StockTicker
 {
     public static class WebApiConfig
     {

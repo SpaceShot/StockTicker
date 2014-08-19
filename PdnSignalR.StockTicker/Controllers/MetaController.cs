@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace PdnSignalR.StockTicker.Controllers
+namespace SpaceShot.Samples.StockTicker.Controllers
 {
     public class MetaController : Controller
     {

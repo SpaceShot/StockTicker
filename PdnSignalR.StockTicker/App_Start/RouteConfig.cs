@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace PdnSignalR.StockTicker
+namespace SpaceShot.Samples.StockTicker
 {
     public class RouteConfig
     {

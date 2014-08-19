@@ -6,7 +6,7 @@ using System.Threading;
 
 using Microsoft.AspNet.SignalR;
 
-namespace PdnSignalR.StockCore
+namespace SpaceShot.Samples.StockCore
 {
     public class StockTicker
     {

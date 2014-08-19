@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdnSignalR.StockTicker", "PdnSignalR.StockTicker\PdnSignalR.StockTicker.csproj", "{8DAA67E8-7E4B-4900-A1B4-C4737183F91C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.StockTicker", "PdnSignalR.StockTicker\SignalR.StockTicker.csproj", "{8DAA67E8-7E4B-4900-A1B4-C4737183F91C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdnSignalR.StockCore", "PdnSignalR.StockCore\PdnSignalR.StockCore.csproj", "{B3B1A2F8-A5F3-4F04-849A-1EB0582A3812}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.StockCore", "PdnSignalR.StockCore\SignalR.StockCore.csproj", "{B3B1A2F8-A5F3-4F04-849A-1EB0582A3812}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D6BA0BAA-7F2C-47B8-ACA5-10CC8A00B331}"
 	ProjectSection(SolutionItems) = preProject

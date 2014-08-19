@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(PdnSignalR.StockTicker.Startup))]
+[assembly: OwinStartup(typeof(SpaceShot.Samples.StockTicker.Startup))]
 
-namespace PdnSignalR.StockTicker
+namespace SpaceShot.Samples.StockTicker
 {
     public class Startup
     {

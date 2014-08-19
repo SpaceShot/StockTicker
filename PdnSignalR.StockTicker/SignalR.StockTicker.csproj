@@ -180,9 +180,9 @@
     <Content Include="Views\Meta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PdnSignalR.StockCore\PdnSignalR.StockCore.csproj">
+    <ProjectReference Include="..\PdnSignalR.StockCore\SignalR.StockCore.csproj">
       <Project>{b3b1a2f8-a5f3-4f04-849a-1eb0582a3812}</Project>
-      <Name>PdnSignalR.StockCore</Name>
+      <Name>SignalR.StockCore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
